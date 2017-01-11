@@ -9,15 +9,11 @@ const requestHandler = (request, response) => {
        response.writeHead(404);
        response.write("Not Found!");
      }else{
-       response.writeHead(200, {'Content-Type': 'text/html'});
-       response.write("Read data from file green" + '\n');
-       response.write("The file details are" + '\n');
+       response.writeHead(200, {'Content-Type': 'application/json'});
        let jsonObj = JSON.parse(data);
-       for(let each in jsonObj){
-         response.write(each + '  ' +jsonObj[each] + '\n');
-       }
+       response.write(JSON.stringify(jsonObj));
      }
-    response.end();
+     response.end();
    });
   }
 
@@ -27,13 +23,9 @@ const requestHandler = (request, response) => {
        response.writeHead(404);
        response.write("Not Found!");
      }else{
-       response.writeHead(200, {'Content-Type': 'text/html'});
-       response.write("Read data from file green" + '\n');
-       response.write("The file details are" + '\n');
+       response.writeHead(200, {'Content-Type': 'application/json'});
        let jsonObj = JSON.parse(data);
-       for(let each in jsonObj){
-         response.write(each + '  ' +jsonObj[each] + '\n');
-       }
+       response.write(JSON.stringify(jsonObj));
      }
     response.end();
    });
