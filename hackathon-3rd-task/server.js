@@ -5,8 +5,8 @@ let green = require('./api/green.js');
 let black = require('./api/black.js');
 let doors = require('./api/doors.js');
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/green', function(req, res){
   green.sendResponse(req,res);
