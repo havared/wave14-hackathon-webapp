@@ -25,17 +25,7 @@ exports.insertData = function(req){
   });
   req.on('end',function(){
       jsonObj = JSON.parse(body);
-      fs.readFile("./data/file1.json", function (err, data) {
-        if(err){
-        }else{
-          fileObj = JSON.parse(data);
-          fileObj['Key'] = 'value';
-        }
-      });
-      var stream = fs.createWriteStream("./data/file1.json");
-      stream.once('open', function(fd) {
-        stream.write(fileObj);
-        stream.end();
-      });
+      let data = fs.readFileSync("./data/file1.json").toString();
+      fs.writeFile('./data/file1.json', JSON.stringify(data,null,2),'utf-8');
   });
 }
